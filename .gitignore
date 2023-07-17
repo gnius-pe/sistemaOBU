@@ -1,0 +1,6 @@
+# Ignorar directorio node_modules
+node_modules/
+
+# Ignorar archivos de bloqueo de versión
+package-lock.json
+
