@@ -2,6 +2,9 @@
 
 Este proyecto tiene como objetivo desarrollar un sistema de lececión de alumnos beneficiarios del comedor de la Universidad Nacional Autónoma de las Sierras (UNAS), aplicando estructuras de datos eficientes y utilizando una base de datos MongoDB para el registro de los alumnos leccionados.
 
+## Instalar las dependencias NPM
+- npm install xlsx
+
 ## Características principales
 
 - Gestión eficiente de la lececión de alumnos del comedor de la UNAS.
