@@ -41,12 +41,3 @@ Agradecemos de antemano tus contribuciones para mejorar este proyecto.
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo LICENSE para obtener más información.
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia relacionada con este proyecto, no dudes en ponerte en contacto con nosotros en [inserta tu dirección de correo electrónico o información de contacto].
-
-Esperamos que este sistema de elección de alumnos apoyados para el comedor de la UNAS sea de utilidad y contribuya a una gestión más eficiente y transparente del servicio de comedor. ¡Gracias por utilizar este proyecto!
-
-<!-- Puedes personalizar este README con los detalles específicos de tu proyecto, como la información de contacto y cualquier otra sección adicional que desees agregar. -->
-
