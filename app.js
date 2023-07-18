@@ -88,3 +88,17 @@ function insertarDatosEnTabla(personas){
   });
   
 
+  /* EVENTOS DE ESTILOS */
+
+  window.addEventListener('scroll', function() {
+    let footer = document.querySelector('.footer');
+    let scrollPosition = window.innerHeight + window.scrollY;
+    let pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+  
+    if (scrollPosition >= pageHeight) {
+      footer.classList.add('footer-hidden');
+    } else {
+      footer.classList.remove('footer-hidden');
+    }
+  });
+  
