@@ -59,46 +59,47 @@ function insertarDatosEnTabla(personas){
   }
 
   document.getElementById('file-input').addEventListener('change', function(event) {
-    var file = event.target.files[0];
+    let archivo = event.target.files[0];
     
-    var reader = new FileReader();
+    let lector = new FileReader();
     
-    reader.onload = function(e) {
-      let data = new Uint8Array(e.target.result);
-      let workbook = XLSX.read(data, {type: 'array'});
+    lector.onload = function(e) {
+      let datos = new Uint8Array(e.target.result);
+      let libroTrabajo = XLSX.read(datos, { type: 'array' });
       
-      let worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      let jsonData = XLSX.utils.sheet_to_json(worksheet);
+      let hojaCalculo = libroTrabajo.Sheets[libroTrabajo.SheetNames[0]];
+      let jsonData = XLSX.utils.sheet_to_json(hojaCalculo);
   
       let personas = [];
       jsonData.forEach(persona => {
         personas.push(new Persona(persona['Nº'],
-                                    persona.CODIGO,
-                                    persona['APELLIDOS Y NOMBRES'],
-                                    persona.SEXO,
-                                    persona['ESCUELA PROFESIONAL'],
-                                    persona.PPS,
-                                    persona.COMEDOR,
-                                    persona.ESTADO));
+                                  persona.CODIGO,
+                                  persona['APELLIDOS Y NOMBRES'],
+                                  persona.SEXO,
+                                  persona['ESCUELA PROFESIONAL'],
+                                  persona.PPS,
+                                  persona.COMEDOR,
+                                  persona.ESTADO));
       });
       // Llamar a la función para insertar datos en la tabla
       insertarDatosEnTabla(personas);
     };
-    reader.readAsArrayBuffer(file);
+    lector.readAsArrayBuffer(archivo);
   });
   
 
   /* EVENTOS DE ESTILOS */
 
   window.addEventListener('scroll', function() {
-    let footer = document.querySelector('.footer');
-    let scrollPosition = window.innerHeight + window.scrollY;
-    let pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    let piePagina = document.querySelector('.footer');
+    let posicionDesplazamiento = window.innerHeight + window.scrollY;
+    let alturaPagina = document.documentElement.scrollHeight - window.innerHeight;
   
-    if (scrollPosition >= pageHeight) {
-      footer.classList.add('footer-hidden');
+    if (posicionDesplazamiento >= alturaPagina) {
+      piePagina.classList.add('footer-hidden');
     } else {
-      footer.classList.remove('footer-hidden');
+      piePagina.classList.remove('footer-hidden');
     }
   });
+  
   
