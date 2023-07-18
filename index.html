@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Leer archivo de Excel</title>
+  <title>Sistema OBU</title>
   <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="/style/styles.css">
 </head>
 <body>
-  <input type="file" id="file-input" accept=".xlsx">
+  <header class="header">
+    <h1 class="titulo-tabla">Reporte de alumnos del comedor</h1>
+   
+  </header>
+  
+  <section class="section-table">
+    <div class="section-inputs">
+      <input class="buton-input" type="file" id="file-input" accept=".xlsx">
+    </div>
+    <table class="mi-tabla" id="tabla-personas">
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Código</th>
+          <th >Nombres y Apellidos</th>
+          <th>Sexo</th>
+          <th >Escuela Profesional</th>
+          <th>Promedio Ponderado</th>
+          <th>Comedor</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Agrega más filas según sea necesario -->
+      </tbody>
+    </table>
+  </section>
 
-  <script>
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">© 2023 GNIUS CODE</p>
+      <ul class="footer-links">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="https://github.com/gnius-pe">Acerca de nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/app.js">
     // Evento para escuchar cuando se seleccione un archivo
-    document.getElementById('file-input').addEventListener('change', function(event) {
-      var file = event.target.files[0];
-      
-      var reader = new FileReader();
-      
-      reader.onload = function(e) {
-        var data = new Uint8Array(e.target.result);
-        var workbook = XLSX.read(data, {type: 'array'});
-        
-        var worksheet = workbook.Sheets[workbook.SheetNames[0]];
-        var jsonData = XLSX.utils.sheet_to_json(worksheet);
-        
-        console.log(jsonData);
-      };
-      
-      reader.readAsArrayBuffer(file);
-    });
   </script>
 </body>
 </html>
