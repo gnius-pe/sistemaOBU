@@ -7,26 +7,8 @@
 <body>
   <input type="file" id="file-input" accept=".xlsx">
 
-  <script>
-    // Evento para escuchar cuando se seleccione un archivo
-    document.getElementById('file-input').addEventListener('change', function(event) {
-      var file = event.target.files[0];
-      
-      var reader = new FileReader();
-      
-      reader.onload = function(e) {
-        var data = new Uint8Array(e.target.result);
-        var workbook = XLSX.read(data, {type: 'array'});
-        
-        var worksheet = workbook.Sheets[workbook.SheetNames[0]];
-        var jsonData = XLSX.utils.sheet_to_json(worksheet);
-        
-        console.log(jsonData);
-      };
-      
-      reader.readAsArrayBuffer(file);
-    });
-  </script>
+  <script src="/app.js"></script>
+  <script src="/modelo/Persona.js"></script>
 </body>
 </html>
 
