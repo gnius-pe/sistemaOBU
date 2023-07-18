@@ -1,0 +1,24 @@
+/* Estilos de la tabla */
+
+.titulo-tabla{
+    text-align: center;
+}
+
+.mi-tabla {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .mi-tabla th, .mi-tabla td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .mi-tabla th {
+    background-color: #f2f2f2;
+  }
+  
+  #tabla-personas {
+    margin-top: 20px;
+  }

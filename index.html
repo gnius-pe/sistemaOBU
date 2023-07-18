@@ -2,13 +2,52 @@
 <html>
 <head>
   <title>Leer archivo de Excel</title>
-  <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://unpkg.com/xlsx@latest/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="/styles/styles.css">
+  
+
 </head>
 <body>
-  <input type="file" id="file-input" accept=".xlsx">
-
+  <h1 class="titulo-tabla">Reposte de alumnos del comedor</h1>
+  <table class="mi-tabla" id="tabla-personas">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Código</th>
+        <th>Nombres y Apellidos</th>
+        <th>Sexo</th>
+        <th>Escuela Profesional</th>
+        <th>Promedio Ponderado</th>
+        <th>Comedor</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>001</td>
+        <td>John Doe</td>
+        <td>Masculino</td>
+        <td>Ingeniería Informática</td>
+        <td>16.5</td>
+        <td>Sí</td>
+        <td>Activo</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>002</td>
+        <td>Jane Smith</td>
+        <td>Femenino</td>
+        <td>Ingeniería Civil</td>
+        <td>15.8</td>
+        <td>No</td>
+        <td>Inactivo</td>
+      </tr>
+      <!-- Agrega más filas según sea necesario -->
+    </tbody>
+  </table>
+  
   <script src="/app.js"></script>
-  <script src="/modelo/Persona.js"></script>
 </body>
 </html>
 
