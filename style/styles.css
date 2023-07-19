@@ -9,28 +9,27 @@ body{
   padding: 0;
   height: 100%;
   width: 100%;
-
+  background-color: #e2e2e2;
 }
 
 .header{
   height: 8%;
 }
 
+/*NAVBAR*/
+
+
+
+/*FIN NAVBAR*/
+
+
 .titulo-tabla{
     text-align: center;
 }
 
-.buton-input {
-    display: inline-block;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.form-control {
+  width: 380px;
+}
 
   .buton-input:hover {
     background-color: #2980b9;
@@ -49,10 +48,19 @@ body{
     flex-direction: column;
     align-items: center;
   }
+ /*ESTILO CEBRA PARA TABLA*/
+  .mi-tabla tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo para filas pares */
+  }
+  
+  .mi-tabla tbody tr:nth-child(odd) {
+    background-color: #fff; /* Color de fondo para filas impares */
+  }
 
   .section-inputs{
     width: 90%;
-    text-align: right;
+    display: flex;
+    justify-content: end;
   }
 
   .mi-tabla {
@@ -91,6 +99,7 @@ body{
     color: #fff;
     padding: 20px;
     opacity: 1;
+    height: 85px;
     transition: opacity 0.5s ease;
   }
 

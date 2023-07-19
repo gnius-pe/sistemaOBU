@@ -1,3 +1,4 @@
+
 class Persona {
     constructor(idAlumno, codigo,nombreCompleto, sexo,escuelaProfesional, pps, comedor, estado) {
       this.idAlumno = idAlumno || '';
@@ -58,7 +59,7 @@ function insertarDatosEnTabla(personas){
       });
   }
 
-  document.getElementById('file-input').addEventListener('change', function(event) {
+  document.getElementById('formFile').addEventListener('change', function(event) {
     let archivo = event.target.files[0];
     
     let lector = new FileReader();
@@ -102,4 +103,4 @@ function insertarDatosEnTabla(personas){
     }
   });
   
-  
+
