@@ -13,7 +13,19 @@ class Persona {
 }
 
 
-let datosPersonas = [];
+let datosPersonas = [
+  {idAlumno: 1, codigo: 20210619, nombreCompleto: 'ABURTO YSUIZA, JANIRA JAMILETH', sexo: 'F', escuelaProfesional: 'ADMINISTRACION', comedor: 'SI', estado: 'ESTUDIANTE', pps: 14.53} ,
+  {idAlumno: 2, codigo: 20200121, nombreCompleto: 'ACOSTA ARELLANO, CECILIA JESSICA', sexo: 'F', escuelaProfesional: 'ADMINISTRACION', comedor: 'SI', estado: 'ESTUDIANTE', pps: 14.9} ,
+  {idAlumno: 3, codigo: 20210277, nombreCompleto: 'ACOSTA HUAMAN, JAMIR ABEL', sexo: 'M', escuelaProfesional: 'INGENIERIA MECANICA ELECTRICA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 12.43},
+  {idAlumno: 4, codigo: 20210312, nombreCompleto: 'ACOSTA LAVI, JHONATAN PATRICIO', sexo: 'M', escuelaProfesional: 'ZOOTECNIA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 11.92},
+  {idAlumno: 5, codigo: 20230116, nombreCompleto: 'AGUILAR PEÑA, ANTHONY ISAI', sexo: 'M', escuelaProfesional: 'CONTABILIDAD', comedor: 'SI', estado: 'ESTUDIANTE', pps: ""},
+  {idAlumno: 6, codigo: 20220238, nombreCompleto: 'AGUIRRE ANDRADE, HEISEMBERG JESUS', sexo: 'M', escuelaProfesional: 'INGENIERIA EN RECURSOS NATURALES RENOVABLES', comedor: 'SI', estado: 'ESTUDIANTE', pps: 12.7},
+  {idAlumno: 7, codigo: 20170273, nombreCompleto: 'AGUIRRE VALENZUELA, JHAMLET', sexo: 'M', escuelaProfesional: 'AGRONOMIA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 11.8},
+  {idAlumno: 8, codigo: 20210314, nombreCompleto: 'ALANIA MALMA, FERNANDO KEID', sexo: 'M', escuelaProfesional: 'INGENIERIA EN CONSERVACION DE SUELOS Y AGUA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 11.67},
+  {idAlumno: 9, codigo: 20180235, nombreCompleto: 'ALANIA RAMOS, JACOB ENOC', sexo: 'M', escuelaProfesional: 'INGENIERIA MECANICA ELECTRICA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 12.25},
+  {idAlumno: 10, codigo: 20220434, nombreCompleto: 'ALANIA REYES, MELANY', sexo: 'F', escuelaProfesional: 'INGENIERIA EN CONSERVACION DE SUELOS Y AGUA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 13.77},
+  {idAlumno: 11, codigo: 20220435, nombreCompleto: 'ALANIA TRINIDAD, YORDIN ROSSEL', sexo: 'M', escuelaProfesional: 'INGENIERIA AMBIENTAL', comedor: 'SI', estado: 'ESTUDIANTE', pps: 13.82},
+];
 
 function insertarDatosEnTabla(personas){
     const tabla = document.getElementById('tabla-personas');
@@ -57,7 +69,12 @@ function insertarDatosEnTabla(personas){
     
         tbody.appendChild(fila);
       });
+
+
   }
+
+  // CARGANDO 10 DATOS PARA PRUEBAS
+  insertarDatosEnTabla(datosPersonas);
 
   document.getElementById('formFile').addEventListener('change', function(event) {
     let archivo = event.target.files[0];
@@ -84,8 +101,13 @@ function insertarDatosEnTabla(personas){
       });
       // Llamar a la función para insertar datos en la tabla
       insertarDatosEnTabla(personas);
+      
+      datosPersonas = [...personas];
+      // console.log(datosPersonas);
+
     };
     lector.readAsArrayBuffer(archivo);
+
   });
   
 
