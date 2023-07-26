@@ -18,7 +18,7 @@ let datosPersonas = [
   {idAlumno: 2, codigo: 20200121, nombreCompleto: 'ACOSTA ARELLANO, CECILIA JESSICA', sexo: 'F', escuelaProfesional: 'ADMINISTRACION', comedor: 'SI', estado: 'ESTUDIANTE', pps: 14.9} ,
   {idAlumno: 3, codigo: 20210277, nombreCompleto: 'ACOSTA HUAMAN, JAMIR ABEL', sexo: 'M', escuelaProfesional: 'INGENIERIA MECANICA ELECTRICA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 12.43},
   {idAlumno: 4, codigo: 20210312, nombreCompleto: 'ACOSTA LAVI, JHONATAN PATRICIO', sexo: 'M', escuelaProfesional: 'ZOOTECNIA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 11.92},
-  {idAlumno: 5, codigo: 20230116, nombreCompleto: 'AGUILAR PEÑA, ANTHONY ISAI', sexo: 'M', escuelaProfesional: 'CONTABILIDAD', comedor: 'SI', estado: 'ESTUDIANTE', pps: ""},
+  {idAlumno: 5, codigo: 20230116, nombreCompleto: 'AGUILAR PEÑA, ANTHONY ISAI', sexo: 'M', escuelaProfesional: 'CONTABILIDAD', comedor: 'SI', estado: 'INGRESANTE', pps: ""},
   {idAlumno: 6, codigo: 20220238, nombreCompleto: 'AGUIRRE ANDRADE, HEISEMBERG JESUS', sexo: 'M', escuelaProfesional: 'INGENIERIA EN RECURSOS NATURALES RENOVABLES', comedor: 'SI', estado: 'ESTUDIANTE', pps: 12.7},
   {idAlumno: 7, codigo: 20170273, nombreCompleto: 'AGUIRRE VALENZUELA, JHAMLET', sexo: 'M', escuelaProfesional: 'AGRONOMIA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 11.8},
   {idAlumno: 8, codigo: 20210314, nombreCompleto: 'ALANIA MALMA, FERNANDO KEID', sexo: 'M', escuelaProfesional: 'INGENIERIA EN CONSERVACION DE SUELOS Y AGUA', comedor: 'SI', estado: 'ESTUDIANTE', pps: 11.67},
@@ -27,15 +27,33 @@ let datosPersonas = [
   {idAlumno: 11, codigo: 20220435, nombreCompleto: 'ALANIA TRINIDAD, YORDIN ROSSEL', sexo: 'M', escuelaProfesional: 'INGENIERIA AMBIENTAL', comedor: 'SI', estado: 'ESTUDIANTE', pps: 13.82},
 ];
 
+let escuelaProfesional = [
+  'NINGUNO',
+  'ADMINISTRACION',
+  'AGRONOMIA',
+  'CONTABILIDAD',
+  'ECONOMIA',
+  'INGENIERIA AMBIENTAL',
+  'INGENIERIA EN CONSERVACION DE SUELOS Y AGUA',
+  'INGENIERIA EN RECURSOS NATURALES RENOVABLES',
+  'INGENIERIA EN INDUSTRIAS ALIMENTARIAS',
+  'INGENIERIA EN INFORMATICA Y SISTEMAS',
+  'INGENIERIA FORESTAL',
+  'INGENIERIA MECANICA ELECTRICA',
+  'ZOOTECNIA',
+]
+
+
 function insertarDatosEnTabla(personas){
     const tabla = document.getElementById('tabla-personas');
     const tbody = tabla.getElementsByTagName('tbody')[0];
 
-    personas.forEach(persona => {
+    personas.forEach((persona, index) => {
         const fila = document.createElement('tr');
     
         const numeroCelda = document.createElement('td');
-        numeroCelda.textContent = persona.idAlumno;
+        // numeroCelda.textContent = persona.idAlumno;
+        numeroCelda.textContent = index + 1;
         
         const codigoCelda = document.createElement('td');
         codigoCelda.textContent = persona.codigo;
@@ -72,6 +90,40 @@ function insertarDatosEnTabla(personas){
 
 
   }
+
+  function deleteTabla(){
+    const tabla = document.getElementById('tabla-personas');
+    const tbody = tabla.getElementsByTagName('tbody')[0];
+
+    // Eliminar todas las filas del tbody
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+  }
+
+  // filtro por seleccion de carrera, anho, etc
+  function loadSelect(id_element, key, value_default){
+    let indexSelectEPRO = document.getElementById(id_element).value;
+    // alert(escuelaProfesional[indexSelectEPRO]);
+
+
+    let listaEstudiantesXescuela = datosPersonas.filter(
+        (persona) => {
+          if(escuelaProfesional[indexSelectEPRO] === value_default){
+            return persona[key];
+          }else{
+            return persona[key] === escuelaProfesional[indexSelectEPRO]
+          }
+         
+        }
+      );
+    
+    // console.log(listaEstudiantesXescuela);
+    deleteTabla();
+    insertarDatosEnTabla(listaEstudiantesXescuela);
+  }
+
+  
 
   // CARGANDO 10 DATOS PARA PRUEBAS
   insertarDatosEnTabla(datosPersonas);

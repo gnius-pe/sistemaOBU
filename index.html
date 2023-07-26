@@ -4,7 +4,7 @@
   <title>Sistema OBU</title>
   <link rel="stylesheet" href="/boostrap/css/bootstrap.min.css">
   <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
-  <link rel="stylesheet" href="/style/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -33,7 +33,22 @@
           1 of 3
         </div>
         <div class="col-6">
-          2 of 3 (wider)
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                  id="selectEPRO" onchange="loadSelect('selectEPRO', 'escuelaProfesional', 'NINGUNO')">
+            <option selected value="0"> NINGUNO </option>
+            <option value="1"> ADMINISTRACION </option>
+            <option value="2"> AGRONOMIA </option>
+            <option value="3"> CONTABILIDAD </option>
+            <option value="4"> ECONOMIA </option>
+            <option value="5"> INGENIERIA AMBIENTAL </option>
+            <option value="6"> INGENIERIA EN CONSERVACION DE SUELOS Y AGUA </option>
+            <option value="7"> INGENIERIA EN RECURSOS NATURALES RENOVABLES </option>
+            <option value="8"> INGENIERIA EN INDUSTRIAS ALIMENTARIAS </option>
+            <option value="9"> INGENIERIA EN INFORMATICA Y SISTEMAS </option>
+            <option value="10"> INGENIERIA FORESTAL </option>
+            <option value="11"> INGENIERIA MECANICA ELECTRICA </option>
+            <option value="12"> ZOOTECNIA </option>
+          </select>
         </div>
         <div class="col">
           3 of 3
