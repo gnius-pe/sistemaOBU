@@ -27,6 +27,8 @@ let datosPersonas = [
   {idAlumno: 11, codigo: 20220435, nombreCompleto: 'ALANIA TRINIDAD, YORDIN ROSSEL', sexo: 'M', escuelaProfesional: 'INGENIERIA AMBIENTAL', comedor: 'SI', estado: 'ESTUDIANTE', pps: 13.82},
 ];
 
+let tempPersona = {};
+
 let escuelaProfesional = [
   'NINGUNO',
   'ADMINISTRACION',
@@ -43,6 +45,65 @@ let escuelaProfesional = [
   'ZOOTECNIA',
 ]
 
+function mostrarPanel(booleano){
+  const panel = document.getElementById('panel');
+  if(booleano){
+    
+    const spans = document.getElementsByTagName('span');
+    // Convertir el HTMLCollection en un array para facilitar el recorrido
+    const spansArray = Array.from(spans);
+    // Eliminar cada span del array
+    spansArray.forEach(span => span.remove());
+
+    panel.classList.add("visible");
+        
+    const numeroCelda = document.createElement('span');
+    numeroCelda.textContent =  1;
+        
+    const codigoCelda = document.createElement('span');
+    codigoCelda.textContent = tempPersona.codigo;
+
+    const nombresApellidosCelda = document.createElement('span');
+    nombresApellidosCelda.textContent = tempPersona.nombreCompleto;
+
+    const sexoCelda = document.createElement('span');
+    sexoCelda.textContent = tempPersona.sexo;
+
+    const escuelaProfesionalCelda = document.createElement('span');
+    escuelaProfesionalCelda.textContent = tempPersona.escuelaProfesional;
+
+    const promedioPonderadoCelda = document.createElement('span');
+    promedioPonderadoCelda.textContent = tempPersona.pps;
+
+    const comedorCelda = document.createElement('span');
+    comedorCelda.textContent = tempPersona.comedor;
+
+    const estadoCelda = document.createElement('span');
+    estadoCelda.textContent = tempPersona.estado;
+
+    panel.appendChild(numeroCelda);
+    panel.appendChild(codigoCelda);
+    panel.appendChild(nombresApellidosCelda);
+    panel.appendChild(sexoCelda);
+    panel.appendChild(escuelaProfesionalCelda);
+    panel.appendChild(promedioPonderadoCelda);
+    panel.appendChild(comedorCelda);
+    panel.appendChild(estadoCelda);
+    
+    tempPersona = {};
+  }else{
+    panel.classList.remove("visible");
+     
+    const spans = document.getElementsByTagName('span');
+    // Convertir el HTMLCollection en un array para facilitar el recorrido
+    const spansArray = Array.from(spans);
+    // Eliminar cada span del array
+    spansArray.forEach(span => span.remove());
+  }
+}
+
+
+activando =  true;//false;
 
 function insertarDatosEnTabla(personas){
     const tabla = document.getElementById('tabla-personas');
@@ -50,6 +111,12 @@ function insertarDatosEnTabla(personas){
 
     personas.forEach((persona, index) => {
         const fila = document.createElement('tr');
+        fila.addEventListener('click', function(){
+          tempPersona = persona;
+          // console.log(tempPersona);
+          mostrarPanel(activando);
+          // activando = !activando;
+        });
     
         const numeroCelda = document.createElement('td');
         // numeroCelda.textContent = persona.idAlumno;
@@ -61,8 +128,8 @@ function insertarDatosEnTabla(personas){
         const nombresApellidosCelda = document.createElement('td');
         nombresApellidosCelda.textContent = persona.nombreCompleto;
     
-        const sexoCelda = document.createElement('td');
-        sexoCelda.textContent = persona.sexo;
+        // const sexoCelda = document.createElement('td');
+        // sexoCelda.textContent = persona.sexo;
     
         const escuelaProfesionalCelda = document.createElement('td');
         escuelaProfesionalCelda.textContent = persona.escuelaProfesional;
@@ -70,20 +137,20 @@ function insertarDatosEnTabla(personas){
         const promedioPonderadoCelda = document.createElement('td');
         promedioPonderadoCelda.textContent = persona.pps;
     
-        const comedorCelda = document.createElement('td');
-        comedorCelda.textContent = persona.comedor;
+        // const comedorCelda = document.createElement('td');
+        // comedorCelda.textContent = persona.comedor;
     
-        const estadoCelda = document.createElement('td');
-        estadoCelda.textContent = persona.estado;
+        // const estadoCelda = document.createElement('td');
+        // estadoCelda.textContent = persona.estado;
         
         fila.appendChild(numeroCelda);
         fila.appendChild(codigoCelda);
         fila.appendChild(nombresApellidosCelda);
-        fila.appendChild(sexoCelda);
+        // fila.appendChild(sexoCelda);
         fila.appendChild(escuelaProfesionalCelda);
         fila.appendChild(promedioPonderadoCelda);
-        fila.appendChild(comedorCelda);
-        fila.appendChild(estadoCelda);
+        // fila.appendChild(comedorCelda);
+        // fila.appendChild(estadoCelda);
     
         tbody.appendChild(fila);
       });
@@ -123,6 +190,20 @@ function insertarDatosEnTabla(personas){
     insertarDatosEnTabla(listaEstudiantesXescuela);
   }
 
+  function loadAnho(id_element){
+    let indexSelectEPRO = document.getElementById(id_element).value;
+    
+    let listaEstudiantesXescuela = datosPersonas.filter(
+        (persona) => {
+          return persona['codigo'].toString().substring(0, 4) === indexSelectEPRO;
+                   
+        }
+      );
+    
+    // console.log(listaEstudiantesXescuela);
+    deleteTabla();
+    insertarDatosEnTabla(listaEstudiantesXescuela);
+  }
   
 
   // CARGANDO 10 DATOS PARA PRUEBAS
