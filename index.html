@@ -30,12 +30,24 @@
     <div class="container text-center">
       <div class="row">
         <div class="col">
-          1 of 3
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                  id="selectANHO" onchange="loadAnho('selectANHO')">
+            <option selected> AÑO </option>
+            <option value="2023"> 2023 </option>
+            <option value="2022"> 2022 </option>
+            <option value="2021"> 2021 </option>
+            <option value="2020"> 2020 </option>
+            <option value="2019"> 2019 </option>
+            <option value="2018"> 2018 </option>
+            <option value="2017"> 2017 </option>
+            <option value="2016"> 2016 </option>
+          </select>
         </div>
         <div class="col-6">
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
                   id="selectEPRO" onchange="loadSelect('selectEPRO', 'escuelaProfesional', 'NINGUNO')">
-            <option selected value="0"> NINGUNO </option>
+            <option selected> PROFESION </option>
+            <option value="0"> NINGUNO </option>
             <option value="1"> ADMINISTRACION </option>
             <option value="2"> AGRONOMIA </option>
             <option value="3"> CONTABILIDAD </option>
@@ -51,7 +63,14 @@
           </select>
         </div>
         <div class="col">
-          3 of 3
+          <!-- <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="ESTUDIANTE">
+            <label class="form-check-label" for="inlineCheckbox1"> ESTUDIANTE </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="INGRESANTE">
+            <label class="form-check-label" for="inlineCheckbox2"> INGRESANTE </label>
+          </div> -->
         </div>
       </div>
     </div>
@@ -61,11 +80,11 @@
           <th>N°</th>
           <th>Código</th>
           <th >Nombres y Apellidos</th>
-          <th>Sexo</th>
+          <!-- <th>Sexo</th> -->
           <th >Escuela Profesional</th>
           <th>Promedio Ponderado</th>
-          <th>Comedor</th>
-          <th>Estado</th>
+          <!-- <th>Comedor</th> -->
+          <!-- <th>Estado</th> -->
         </tr>
       </thead>
       <tbody>
@@ -73,6 +92,7 @@
       </tbody>
     </table>
   </section>
+  <br><br>
 
   <footer class="footer">
     <div class="footer-content">
@@ -82,6 +102,13 @@
       </ul>
     </div>
   </footer>
+  <br><br>
+  <div class="panel" id="panel">
+    <div class="close" onClick="mostrarPanel(false)"> X </div>
+  </div>
+  <!-- <div class="panel visible" id="panel"><span>1</span><span>20210619</span><span>ABURTO YSUIZA, JANIRA JAMILETH</span><span>F</span><span>ADMINISTRACION</span><span>14.53</span><span>SI</span><span>ESTUDIANTE</span>
+    <div class="close" onClick="mostrarPanel(false)"> X </div>
+  </div> -->
 
   <script src="/app.js">
     // Evento para escuchar cuando se seleccione un archivo

@@ -89,8 +89,8 @@ body{
 
 
   /*ESTILOS PARA EL  FOOTER*/
-
-  .footer {
+  .panel {
+    display: none !important;
     position: fixed;
     left: 0;
     right: 0;
@@ -103,8 +103,21 @@ body{
     transition: opacity 0.5s ease;
   }
 
-  .footer-hidden {
-    opacity: 0;
+  .visible{
+    display: flex !important;
+    justify-content: space-around;
+  }
+
+  .close{
+    background: red;
+    width: 45px; height: 45px;
+    display: flex; justify-content: center; align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    margin-right: 2rem;
+    margin-top: -2.8rem;
   }
   
   .footer-content {
